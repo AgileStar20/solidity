@@ -160,8 +160,7 @@ struct CommutativeSwap: SimplePeepholeOptimizerMethod<CommutativeSwap, 2>
 	{
 		// Remove SWAP1 if following instruction is commutative
 		if (
-			_swap.type() == Operation &&
-			_swap.instruction() == Instruction::SWAP1 &&
+			_swap == Instruction::SWAP1 &&
 			SemanticInformation::isCommutativeOperation(_op)
 		)
 		{
